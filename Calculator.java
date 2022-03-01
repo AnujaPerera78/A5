@@ -94,7 +94,22 @@ public class Calculator extends JFrame {
 
 			}
 		});
+		
+		btnPerfectSquare.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double input = Double.parseDouble(textInput.getText());
+				double ans = Math.sqrt(input); 
+				if ((ans - Math.floor(ans) ==0) ) { 
+					textOutput.setText("True");
+				}
+				else {
+					textOutput.setText("False");
+				}
+					
 
+			}
+		});
+		
 		btnRoundUp.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
