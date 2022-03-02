@@ -27,6 +27,8 @@ public class Calculator extends JFrame {
 	// Round a number down
 	// Get the absolute value of something
 
+	// Check if number is too high
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -87,37 +89,56 @@ public class Calculator extends JFrame {
 		btnRandom.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				final double MAX = 1000000;
-				double random = Math.round(Math.random() * MAX);
+				boolean run = true;
+				try {
+					double input = Double.parseDouble(textInput.getText());
+				} catch (NumberFormatException ex) {
+					textOutput.setText("Please enter numbers in correct format");
+					run = false;
+				}
 
-				textOutput.setText("" + random);
+				if (run) {
+					final double MAX = 1000000;
+					double random = Math.round(Math.random() * MAX);
 
+					textOutput.setText("" + random);
+					textInput.setText("");
+
+				}
 			}
 		});
-		
+
 		btnPerfectSquare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				double input = Double.parseDouble(textInput.getText());
-				double ans = Math.sqrt(input); 
-				if ((ans - Math.floor(ans) ==0) ) { 
-					textOutput.setText("True");
+				try {
+					double input = Double.parseDouble(textInput.getText());
+					double ans = Math.sqrt(input);
+					if ((ans - Math.floor(ans) == 0)) {
+						textOutput.setText("True");
+					} else {
+						textOutput.setText("False");
+					}
+
+				} catch (NumberFormatException ex) {
+					textOutput.setText("Please enter numbers in correct format");
 				}
-				else {
-					textOutput.setText("False");
-				}
-					
 
 			}
 		});
-		
+
 		btnRoundUp.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				final double roundUp = 0.49;
-				double input = Double.parseDouble(textInput.getText());
-				double output = Math.round(input + roundUp);
+				try {
+					double input = Double.parseDouble(textInput.getText());
+					double output = Math.round(input + roundUp);
 
-				textOutput.setText("" + output);
+					textOutput.setText("" + output);
+				} catch (NumberFormatException ex) {
+					textOutput.setText("Please enter numbers in correct format");
+				}
+
 			}
 		});
 
@@ -125,22 +146,30 @@ public class Calculator extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 				final double roundDown = -0.49;
-				double input = Double.parseDouble(textInput.getText());
-				double output = Math.round(input + roundDown);
+				try {
+					double input = Double.parseDouble(textInput.getText());
+					double output = Math.round(input + roundDown);
 
-				textOutput.setText("" + output);
+					textOutput.setText("" + output);
+				} catch (NumberFormatException ex) {
+					textOutput.setText("Please enter numbers in correct format");
+				}
 			}
+
 		});
 
 		btnAbsoluteValue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int input;
+				try {
+					input = Integer.parseInt(textInput.getText());
 
-				input = Integer.parseInt(textInput.getText());
+					int output = Math.abs(input);
 
-				int output = Math.abs(input);
-
-				textOutput.setText("" + output);
+					textOutput.setText("" + output);
+				} catch (NumberFormatException ex) {
+					textOutput.setText("Please enter in correct format");
+				}
 
 			}
 		});
