@@ -28,7 +28,7 @@ public class Calculator extends JFrame {
 	// Get the absolute value of something
 
 	// Check if number is too high
-
+	// set max to 1 millions 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
