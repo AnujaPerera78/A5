@@ -11,25 +11,22 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Uses 5 math methods to calculate outputs for the user
+ * modified 20220303 
+ * date 20220303
+ * @filename Calculator.java
+ * @author Anuja
+ * @version 1.0
+ * @see ICS4U Content
+ */
+
 public class Calculator extends JFrame {
-	
 
 	private JPanel contentPane;
 	private JTextField textInput;
 	private JTextField textOutput;
 
-	/**
-	 * Launch the application.
-	 */
-
-	// Check if number is
-	// Randomize a number
-	// Round a number up
-	// Round a number down
-	// Get the absolute value of something
-
-	// Check if number is too high
-	// set max to 1 millions
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -43,16 +40,17 @@ public class Calculator extends JFrame {
 		});
 	}
 
-	public boolean checkinput () {
+	public boolean checkinput() {
 		boolean check = true;
 		double input = Double.parseDouble(textInput.getText());
 		if (input > 1000000 || input < -1000000) {
-			check = false; 
+			check = false;
 			return check;
 		}
 		return check;
-		
+
 	}
+
 	public Calculator() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -96,10 +94,7 @@ public class Calculator extends JFrame {
 		textInput.setBounds(225, 88, 267, 31);
 		contentPane.add(textInput);
 		textInput.setColumns(10);
-		
-		
-		
-		
+
 		btnRandom.addActionListener(new ActionListener() {
 
 			public void random() {
@@ -119,7 +114,6 @@ public class Calculator extends JFrame {
 
 		btnPerfectSquare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 
 				try {
 					double input = Double.parseDouble(textInput.getText());
