@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * Uses 5 math methods to calculate outputs for the user
+ * Uses 5 math methods to calculate outputs for the user 
  * modified 20220303 
  * date 20220303
  * @filename Calculator.java
@@ -38,17 +38,6 @@ public class Calculator extends JFrame {
 				}
 			}
 		});
-	}
-
-	public boolean checkinput() {
-		boolean check = true;
-		double input = Double.parseDouble(textInput.getText());
-		if (input > 1000000 || input < -1000000) {
-			check = false;
-			return check;
-		}
-		return check;
-
 	}
 
 	public Calculator() {
@@ -150,7 +139,11 @@ public class Calculator extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				double answer = roundup();
-				textOutput.setText("" + answer);
+				if (answer == 0.0) {
+					textOutput.setText("Please enter numbers in correct format");
+				} else {
+					textOutput.setText("" + answer);
+				}
 
 			}
 		});
